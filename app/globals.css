@@ -1,26 +1,160 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ============================================================
+   World of Flavors — design tokens
+   ============================================================ */
+@theme {
+  /* Brand palette — deep forest greens, warm brass, cream */
+  --color-ink: #0a1710;          /* deepest background */
+  --color-forest: #0f2418;       /* dark section background */
+  --color-forest-700: #17351f;   /* raised dark surface */
+  --color-moss: #1c4029;         /* borders / chips on dark */
+  --color-green: #2c6e3a;        /* primary green */
+  --color-green-300: #86b394;    /* soft green text on dark */
+  --color-brass: #cba15a;        /* accent gold */
+  --color-brass-200: #e7cf9e;    /* light gold (gradients) */
+  --color-brass-400: #b3823a;    /* deep gold */
+  --color-sea: #2b7ea1;          /* secondary teal-blue */
+  --color-cream: #f5f1e6;        /* light section background */
+  --color-paper: #fcfaf3;        /* cards on cream */
+  --color-ink-soft: #24352b;     /* body text on light */
+  --color-clay: #7a6a53;         /* muted text on light */
+
+  /* Type */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
+
+  /* Radii */
+  --radius-xl: 1.25rem;
+  --radius-2xl: 1.75rem;
+  --radius-3xl: 2.25rem;
+
+  /* Easing */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+/* ============================================================
+   Base
+   ============================================================ */
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    color-scheme: dark;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+  }
+
+  body {
+    background-color: var(--color-ink);
+    color: var(--color-cream);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.015em;
+  }
+
+  ::selection {
+    background: var(--color-brass);
+    color: var(--color-ink);
+  }
+
+  ::-webkit-scrollbar { width: 11px; }
+  ::-webkit-scrollbar-track { background: var(--color-ink); }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-brass-400);
+    border-radius: 999px;
+    border: 3px solid var(--color-ink);
+  }
+  ::-webkit-scrollbar-thumb:hover { background: var(--color-brass); }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brass);
+    outline-offset: 3px;
+    border-radius: 6px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ============================================================
+   Utilities
+   ============================================================ */
+@layer utilities {
+  .container-x {
+    width: 100%;
+    max-width: 78rem;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+  @media (min-width: 640px) { .container-x { padding-inline: 2rem; } }
+  @media (min-width: 1024px) { .container-x { padding-inline: 2.5rem; } }
+
+  .narrow { max-width: 52rem; margin-inline: auto; }
+
+  .text-gradient-brass {
+    background: linear-gradient(105deg, var(--color-brass-200), var(--color-brass) 55%, var(--color-brass-400));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  .hairline { height: 1px; background: color-mix(in oklab, var(--color-brass) 22%, transparent); }
+
+  /* Subtle film grain overlay (put on a `relative` element) */
+  .grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.45;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  }
+
+  .spotlight {
+    background:
+      radial-gradient(60% 55% at 50% 0%, color-mix(in oklab, var(--color-green) 42%, transparent), transparent 70%),
+      radial-gradient(45% 45% at 85% 15%, color-mix(in oklab, var(--color-brass) 22%, transparent), transparent 70%);
+  }
+
+  /* Scroll-reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(26px);
+    transition: opacity 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo);
+    will-change: opacity, transform;
+  }
+  .reveal.is-visible { opacity: 1; transform: none; }
+
+  .animate-marquee { animation: marquee 34s linear infinite; }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .animate-float { animation: float 7s ease-in-out infinite; }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .ping-slow { animation: ping-slow 2.4s cubic-bezier(0, 0, 0.2, 1) infinite; }
+  @keyframes ping-slow {
+    75%, 100% { transform: scale(2.2); opacity: 0; }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .animate-marquee, .animate-float, .ping-slow { animation: none; }
 }
