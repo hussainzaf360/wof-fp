@@ -12,12 +12,12 @@ export function Hero() {
       className="grain relative flex min-h-screen items-center justify-center overflow-hidden bg-ink pt-20"
     >
       <Image
-        src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&q=80&w=1920"
-        alt="A spread of global cuisine at the food park"
+        src="/images/park-aerial.jpg"
+        alt="Aerial view of World of Flavors Food Park with its lineup of food carts and covered seating"
         fill
         priority
         sizes="100vw"
-        className="object-cover opacity-40"
+        className="object-cover opacity-45"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-ink/85 via-ink/80 to-ink" />
       <div className="spotlight absolute inset-0 opacity-70" />

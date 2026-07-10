@@ -20,6 +20,8 @@ export type Vendor = {
   heroBlurb: string;
   story: { heading: string; paragraphs: string[] };
   images: { card: string; hero: string; story: string };
+  /** optional photo gallery shown on the vendor detail page */
+  gallery?: { src: string; caption?: string }[];
   logo?: string;
   menu: MenuSection[];
   menuNote?: string;

@@ -24,6 +24,33 @@ export const vendors: Vendor[] = [
       story:
         "https://images.unsplash.com/photo-1561651823-34feb02250e4?auto=format&fit=crop&q=80&w=1200",
     },
+    // Placeholder photos — swap in real Shawarma House shots when available.
+    gallery: [
+      {
+        src: "https://images.unsplash.com/photo-1529006557810-274b9b2fc783?auto=format&fit=crop&q=80&w=1200",
+        caption: "Chicken shawarma wrap, built to order",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=1200",
+        caption: "Skewers grilled to order",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1633945274405-b6c8069047b0?auto=format&fit=crop&q=80&w=1200",
+        caption: "Shawarma plate over seasoned rice",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1561651823-34feb02250e4?auto=format&fit=crop&q=80&w=1200",
+        caption: "Fresh off the grill",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1615870216519-2f9fa575fa5c?auto=format&fit=crop&q=80&w=1200",
+        caption: "Wraps drizzled in house-made garlic sauce",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1606491956689-2ea866880c84?auto=format&fit=crop&q=80&w=1200",
+        caption: "Fresh-baked bread, warm from the oven",
+      },
+    ],
     hasContactForm: true,
     menuNote:
       "Menu items and prices are samples — swap in the vendor's real menu when ready.",
@@ -103,6 +130,29 @@ export const vendors: Vendor[] = [
       hero: "/images/island-bitez-food.webp",
       story: "/images/island-bitez-food.webp",
     },
+    // Leads with Island Bitez's real photo; the rest are placeholders to swap out.
+    gallery: [
+      {
+        src: "/images/island-bitez-food.webp",
+        caption: "Island plate lunch — two scoops rice & mac salad",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=1200",
+        caption: "Fresh poke, made daily",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&q=80&w=1200",
+        caption: "Island-style BBQ, grilled to order",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&q=80&w=1200",
+        caption: "Seafood rice, island-style",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1626804475297-41608ea09aeb?auto=format&fit=crop&q=80&w=1200",
+        caption: "House chicken pancit",
+      },
+    ],
     hasContactForm: true,
     menuNote:
       "Prices from Island Bitez's online menu and may vary in person. Menu items subject to availability.",

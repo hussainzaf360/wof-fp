@@ -8,6 +8,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 import { VendorMenu } from "@/components/vendors/VendorMenu";
+import { VendorGallery } from "@/components/vendors/VendorGallery";
 import { VendorContactForm } from "@/components/forms/VendorContactForm";
 import { getVendor, vendorSlugs } from "@/lib/vendors";
 
@@ -126,6 +127,21 @@ export default async function VendorPage({
           </div>
         </div>
       </Section>
+
+      {/* Gallery */}
+      {vendor.gallery && vendor.gallery.length > 0 && (
+        <Section tone="forest">
+          <div className="container-x max-w-5xl">
+            <SectionHeading
+              eyebrow="Straight From the Cart"
+              title={<span className="italic">The Gallery</span>}
+            />
+            <Reveal className="mt-12">
+              <VendorGallery images={vendor.gallery} />
+            </Reveal>
+          </div>
+        </Section>
+      )}
 
       {/* Menu */}
       <Section tone="ink">
