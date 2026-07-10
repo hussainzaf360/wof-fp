@@ -19,8 +19,8 @@ export function About() {
               <div className="absolute -bottom-5 -right-5 -z-10 h-36 w-36 rounded-full bg-green/10" />
               <div className="relative aspect-[4/3] overflow-hidden rounded-3xl shadow-[0_40px_80px_-40px_rgba(10,23,16,0.5)]">
                 <Image
-                  src="https://images.unsplash.com/photo-1565123409695-7b5ef63a2efb?auto=format&fit=crop&q=80&w=1000"
-                  alt="The warm atmosphere at World of Flavors"
+                  src="/images/park-patio.jpg"
+                  alt="The seating patio at World of Flavors, with food carts, tables, and a shaded tent"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover"

@@ -7,6 +7,7 @@ export const vendors: Vendor[] = [
     category: "Middle Eastern",
     tagline: "Middle Eastern street food",
     icon: "utensils-crossed",
+    logo: "/images/shawarma-house-logo.jpg",
     cardBlurb:
       "Authentic shawarma, falafel, and wraps packed with bold, slow-marinated flavor.",
     heroBlurb:
