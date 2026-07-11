@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, Phone } from "lucide-react";
 import { nav, site } from "@/lib/site";
-import { Emblem } from "@/components/ui/Emblem";
 
 export function Header() {
   const pathname = usePathname();
@@ -46,7 +46,14 @@ export function Header() {
           className="group flex items-center gap-3"
           onClick={() => setOpen(false)}
         >
-          <Emblem className="h-11 w-11 transition-transform duration-500 group-hover:rotate-[18deg]" />
+          <Image
+            src="/images/wof-logo.jpeg"
+            alt="World of Flavors"
+            width={48}
+            height={48}
+            priority
+            className="h-11 w-11 rounded-xl object-cover shadow-lg ring-1 ring-brass/30 transition-all duration-500 group-hover:scale-105 group-hover:ring-brass/60"
+          />
           <span className="font-display text-[1.6rem] font-medium leading-none tracking-tight text-cream transition-colors group-hover:text-brass">
             World of Flavors
           </span>

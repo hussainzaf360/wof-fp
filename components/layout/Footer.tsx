@@ -1,7 +1,7 @@
+import Image from "next/image";
 import Link from "next/link";
 import { MapPin, Clock, Mail, Phone, Heart } from "lucide-react";
 import { nav, site } from "@/lib/site";
-import { Emblem } from "@/components/ui/Emblem";
 
 function FacebookIcon({ className }: { className?: string }) {
   return (
@@ -28,8 +28,14 @@ export function Footer() {
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">
           {/* Brand */}
           <div className="space-y-6 lg:col-span-5">
-            <Link href="/" className="flex items-center gap-3">
-              <Emblem className="h-11 w-11" />
+            <Link href="/" className="group flex items-center gap-3">
+              <Image
+                src="/images/wof-logo.jpeg"
+                alt="World of Flavors"
+                width={48}
+                height={48}
+                className="h-11 w-11 rounded-xl object-cover shadow-lg ring-1 ring-brass/30 transition-all duration-500 group-hover:ring-brass/60"
+              />
               <span className="font-display text-2xl text-cream">
                 World of Flavors
               </span>
